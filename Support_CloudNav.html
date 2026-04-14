@@ -3,96 +3,999 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Official support page for CloudNav, a private offline-first GPS utility for precise coordinates, altitude, speed, heading, saved places, and emergency-ready sharing.">
     <title>CloudNav Support</title>
     <style>
+        :root {
+            color-scheme: light;
+            --ink: #151716;
+            --muted: #5c6662;
+            --soft: #eef4f1;
+            --paper: #ffffff;
+            --line: #dbe6e1;
+            --accent: #0c7f6c;
+            --accent-strong: #075e52;
+            --accent-soft: #dff4ee;
+            --signal: #d94b49;
+            --gold: #b88a16;
+            --shadow: 0 18px 55px rgba(21, 23, 22, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-        main {
-            padding: 20px;
-            max-width: 800px;
-            margin: auto;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2 {
-            color: #333;
-        }
-        p {
+            color: var(--ink);
+            background: #f7faf8;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             line-height: 1.6;
-            color: #555;
         }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            margin-top: 20px;
-        }
+
         a {
-            color: #4CAF50;
+            color: inherit;
             text-decoration: none;
         }
-        a:hover {
+
+        p a {
+            color: var(--accent-strong);
+            font-weight: 800;
             text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            border-bottom: 1px solid rgba(219, 230, 225, 0.8);
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav {
+            width: min(1140px, calc(100% - 40px));
+            min-height: 72px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 18px;
+            letter-spacing: 0;
+            white-space: nowrap;
+        }
+
+        .brand-mark {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: grid;
+            place-items: center;
+            color: #ffffff;
+            background: var(--accent);
+            box-shadow: 0 12px 24px rgba(12, 127, 108, 0.22);
+        }
+
+        .brand-mark svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .nav-links a {
+            min-height: 40px;
+            display: inline-flex;
+            align-items: center;
+            border-radius: 8px;
+            padding: 0 13px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            color: var(--accent-strong);
+            background: var(--accent-soft);
+            outline: none;
+        }
+
+        .hero {
+            overflow: hidden;
+            background:
+                linear-gradient(90deg, rgba(247, 250, 248, 0.98) 0%, rgba(247, 250, 248, 0.94) 44%, rgba(247, 250, 248, 0.72) 100%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='760' viewBox='0 0 1200 760'%3E%3Crect width='1200' height='760' fill='%23dfe8e3'/%3E%3Cpath d='M-35 548 C128 447 232 602 394 501 C532 415 619 295 780 338 C961 386 1029 211 1235 267' fill='none' stroke='%2397b5aa' stroke-width='30' stroke-linecap='round' opacity='.46'/%3E%3Cpath d='M-60 236 C108 330 215 189 350 265 C510 355 632 171 789 238 C908 288 1017 214 1260 88' fill='none' stroke='%23ffffff' stroke-width='26' stroke-linecap='round' opacity='.58'/%3E%3Cpath d='M-20 654 C160 572 249 706 428 637 C613 566 661 428 839 484 C997 533 1104 401 1244 421' fill='none' stroke='%230c7f6c' stroke-width='8' stroke-linecap='round' opacity='.32'/%3E%3Cpath d='M70 70 L1120 690 M210 40 L1190 580 M20 260 L1020 735' stroke='%23c7d5cf' stroke-width='2' opacity='.55'/%3E%3Ccircle cx='835' cy='323' r='98' fill='%23ffffff' opacity='.55'/%3E%3Ccircle cx='835' cy='323' r='18' fill='%23d94b49'/%3E%3Cpath d='M835 214 L862 323 L835 432 L808 323 Z' fill='%230c7f6c' opacity='.82'/%3E%3C/svg%3E");
+            background-position: center;
+            background-size: cover;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .hero-inner {
+            width: min(1140px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 72px 0 56px;
+            display: grid;
+            grid-template-columns: minmax(0, 1.02fr) minmax(340px, 0.72fr);
+            align-items: center;
+            gap: 56px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 18px;
+            color: var(--accent-strong);
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 30px;
+            height: 2px;
+            background: var(--signal);
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin-top: 0;
+        }
+
+        h1 {
+            max-width: 760px;
+            margin-bottom: 22px;
+            font-size: 58px;
+            line-height: 1.04;
+            letter-spacing: 0;
+        }
+
+        .hero-copy {
+            max-width: 680px;
+            margin-bottom: 30px;
+            color: #3f4945;
+            font-size: 20px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            min-height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            padding: 0 18px;
+            font-weight: 800;
+            line-height: 1;
+            transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+        }
+
+        .button:hover,
+        .button:focus-visible {
+            transform: translateY(-1px);
+            outline: none;
+        }
+
+        .button-primary {
+            color: #ffffff;
+            background: var(--accent);
+            box-shadow: 0 14px 28px rgba(12, 127, 108, 0.22);
+        }
+
+        .button-primary:hover,
+        .button-primary:focus-visible {
+            background: var(--accent-strong);
+        }
+
+        .button-secondary {
+            color: var(--accent-strong);
+            border-color: var(--line);
+            background: rgba(255, 255, 255, 0.78);
+        }
+
+        .button-secondary:hover,
+        .button-secondary:focus-visible {
+            box-shadow: 0 12px 26px rgba(21, 23, 22, 0.09);
+        }
+
+        .trust-row {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            max-width: 670px;
+        }
+
+        .trust-item {
+            min-height: 64px;
+            border: 1px solid rgba(219, 230, 225, 0.9);
+            border-radius: 8px;
+            padding: 12px 14px;
+            background: rgba(255, 255, 255, 0.82);
+        }
+
+        .trust-item strong,
+        .trust-item span {
+            display: block;
+        }
+
+        .trust-item strong {
+            font-size: 14px;
+        }
+
+        .trust-item span {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .device {
+            width: min(100%, 386px);
+            justify-self: end;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            padding: 14px;
+            background: #161816;
+            box-shadow: var(--shadow);
+        }
+
+        .phone-screen {
+            min-height: 580px;
+            overflow: hidden;
+            border-radius: 8px;
+            color: #eef8f4;
+            background:
+                linear-gradient(rgba(18, 21, 20, 0.24), rgba(18, 21, 20, 0.24)),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='430' height='760' viewBox='0 0 430 760'%3E%3Crect width='430' height='760' fill='%2325302b'/%3E%3Cpath d='M-20 140 C62 78 124 172 205 110 C284 50 344 112 452 48' fill='none' stroke='%2367a796' stroke-width='28' stroke-linecap='round' opacity='.45'/%3E%3Cpath d='M-20 393 C77 325 126 439 226 370 C327 300 365 410 460 342' fill='none' stroke='%23dfe8e3' stroke-width='22' stroke-linecap='round' opacity='.28'/%3E%3Cpath d='M-30 625 C69 552 140 675 232 598 C313 530 360 588 462 520' fill='none' stroke='%2367a796' stroke-width='18' stroke-linecap='round' opacity='.34'/%3E%3Cg stroke='%236e7f78' stroke-width='1' opacity='.36'%3E%3Cpath d='M35 0v760M105 0v760M175 0v760M245 0v760M315 0v760M385 0v760M0 64h430M0 134h430M0 204h430M0 274h430M0 344h430M0 414h430M0 484h430M0 554h430M0 624h430M0 694h430'/%3E%3C/g%3E%3Ccircle cx='215' cy='356' r='94' fill='%230c7f6c' opacity='.18'/%3E%3Ccircle cx='215' cy='356' r='48' fill='%230c7f6c' opacity='.3'/%3E%3Ccircle cx='215' cy='356' r='12' fill='%23d94b49'/%3E%3C/svg%3E");
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .phone-top,
+        .phone-bottom {
+            padding: 22px;
+        }
+
+        .phone-status {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            color: rgba(238, 248, 244, 0.74);
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0;
+        }
+
+        .coordinate-card {
+            margin-top: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 8px;
+            padding: 20px;
+            background: rgba(10, 12, 11, 0.72);
+            backdrop-filter: blur(18px);
+        }
+
+        .coordinate-card .label {
+            margin-bottom: 8px;
+            color: rgba(238, 248, 244, 0.68);
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .coordinate-card .value {
+            margin: 0 0 6px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 22px;
+            line-height: 1.25;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .metric {
+            min-height: 78px;
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            border-radius: 8px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .metric span {
+            display: block;
+            color: rgba(238, 248, 244, 0.62);
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .metric strong {
+            display: block;
+            margin-top: 3px;
+            font-size: 20px;
+        }
+
+        .emergency-strip {
+            border-top: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 17px 22px 22px;
+            background: rgba(8, 11, 10, 0.78);
+        }
+
+        .emergency-strip span,
+        .emergency-strip strong {
+            display: block;
+        }
+
+        .emergency-strip span {
+            color: rgba(238, 248, 244, 0.64);
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .emergency-strip strong {
+            margin-top: 4px;
+            font-size: 15px;
+        }
+
+        .section {
+            scroll-margin-top: 88px;
+            padding: 82px 0;
+        }
+
+        .section.alt {
+            background: var(--paper);
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .container {
+            width: min(1140px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        .section-heading {
+            max-width: 720px;
+            margin-bottom: 34px;
+        }
+
+        .section-heading h2 {
+            margin-bottom: 12px;
+            font-size: 38px;
+            line-height: 1.14;
+            letter-spacing: 0;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 18px;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .support-card,
+        .feature-card,
+        .privacy-panel,
+        .faq details {
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--paper);
+            box-shadow: 0 12px 32px rgba(21, 23, 22, 0.06);
+        }
+
+        .support-card {
+            min-height: 214px;
+            padding: 24px;
+        }
+
+        .icon-box {
+            width: 42px;
+            height: 42px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            display: grid;
+            place-items: center;
+            color: var(--accent-strong);
+            background: var(--accent-soft);
+        }
+
+        .icon-box.signal {
+            color: #9e2628;
+            background: #fbe8e8;
+        }
+
+        .icon-box.gold {
+            color: #805f08;
+            background: #fbf1d5;
+        }
+
+        .icon-box svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .support-card h3,
+        .feature-card h3,
+        .privacy-panel h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+            line-height: 1.25;
+        }
+
+        .support-card p,
+        .feature-card p,
+        .privacy-panel p {
+            margin-bottom: 0;
+            color: var(--muted);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .feature-card {
+            min-height: 190px;
+            padding: 22px;
+        }
+
+        .feature-card::before {
+            content: "";
+            display: block;
+            width: 36px;
+            height: 3px;
+            margin-bottom: 18px;
+            border-radius: 8px;
+            background: var(--accent);
+        }
+
+        .feature-card:nth-child(2)::before,
+        .feature-card:nth-child(6)::before {
+            background: var(--signal);
+        }
+
+        .feature-card:nth-child(4)::before,
+        .feature-card:nth-child(7)::before {
+            background: var(--gold);
+        }
+
+        .privacy-layout {
+            display: grid;
+            grid-template-columns: 0.82fr 1.18fr;
+            align-items: start;
+            gap: 22px;
+        }
+
+        .privacy-lede {
+            padding-right: 24px;
+        }
+
+        .privacy-lede h2 {
+            margin-bottom: 14px;
+            font-size: 38px;
+            line-height: 1.14;
+        }
+
+        .privacy-lede p {
+            color: var(--muted);
+            font-size: 18px;
+        }
+
+        .privacy-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .privacy-panel {
+            min-height: 166px;
+            padding: 24px;
+        }
+
+        .faq {
+            display: grid;
+            gap: 12px;
+        }
+
+        .faq details {
+            padding: 0;
+        }
+
+        .faq summary {
+            min-height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            cursor: pointer;
+            padding: 20px 22px;
+            font-size: 17px;
+            font-weight: 800;
+            list-style: none;
+        }
+
+        .faq summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq summary::after {
+            content: "+";
+            width: 28px;
+            height: 28px;
+            flex: 0 0 28px;
+            border-radius: 8px;
+            display: grid;
+            place-items: center;
+            color: var(--accent-strong);
+            background: var(--accent-soft);
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        .faq details[open] summary::after {
+            content: "-";
+        }
+
+        .faq details p {
+            margin: 0;
+            padding: 0 22px 22px;
+            color: var(--muted);
+        }
+
+        .contact-band {
+            color: #ffffff;
+            background: #171a18;
+        }
+
+        .contact-wrap {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .contact-wrap h2 {
+            margin-bottom: 8px;
+            font-size: 34px;
+            line-height: 1.16;
+        }
+
+        .contact-wrap p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.74);
+            font-size: 17px;
+        }
+
+        .contact-band .button-primary {
+            background: #ffffff;
+            color: var(--accent-strong);
+            box-shadow: none;
+        }
+
+        .contact-band .button-primary:hover,
+        .contact-band .button-primary:focus-visible {
+            background: var(--accent-soft);
+        }
+
+        .site-footer {
+            border-top: 1px solid #2d322f;
+            padding: 28px 0;
+            color: rgba(255, 255, 255, 0.66);
+            background: #171a18;
+            font-size: 14px;
+        }
+
+        .footer-inner {
+            width: min(1140px, calc(100% - 40px));
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-inner a {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        @media (max-width: 980px) {
+            .hero-inner,
+            .privacy-layout,
+            .contact-wrap {
+                grid-template-columns: 1fr;
+            }
+
+            .device {
+                justify-self: start;
+            }
+
+            .support-grid,
+            .feature-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 720px) {
+            .nav {
+                min-height: auto;
+                padding: 16px 0;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 2px;
+            }
+
+            .hero-inner {
+                padding: 48px 0 42px;
+                gap: 34px;
+            }
+
+            h1 {
+                font-size: 40px;
+            }
+
+            .hero-copy,
+            .section-heading p,
+            .privacy-lede p {
+                font-size: 17px;
+            }
+
+            .trust-row,
+            .support-grid,
+            .feature-grid,
+            .privacy-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 58px 0;
+            }
+
+            .section-heading h2,
+            .privacy-lede h2 {
+                font-size: 30px;
+            }
+
+            .phone-screen {
+                min-height: 520px;
+            }
+
+            .contact-wrap {
+                gap: 20px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .nav,
+            .hero-inner,
+            .container,
+            .footer-inner {
+                width: min(100% - 28px, 1140px);
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .button {
+                width: 100%;
+            }
+
+            .coordinate-card .value {
+                font-size: 18px;
+            }
+
+            .metric-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>CloudNav Support</h1>
-        <p>Precise offline GPS with coordinates, altitude, speed, and heading</p>
+    <header class="site-header">
+        <nav class="nav" aria-label="CloudNav support navigation">
+            <a class="brand" href="#top" aria-label="CloudNav Support home">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" role="img">
+                        <path d="M12 3l7 18-7-4-7 4 7-18z" fill="currentColor"/>
+                    </svg>
+                </span>
+                <span>CloudNav Support</span>
+            </a>
+            <div class="nav-links">
+                <a href="#support">Support</a>
+                <a href="#features">Features</a>
+                <a href="#privacy">Privacy</a>
+                <a href="#faq">FAQ</a>
+                <a href="mailto:admin@technoforbes.com">Contact</a>
+            </div>
+        </nav>
     </header>
-    <main>
-        <h2>About CloudNav</h2>
-        <p>Welcome to the support page for <strong>CloudNav</strong>, a private, offline-first GPS utility designed for precision. CloudNav is designed to be private by default—no account required, no tracking, and all data stays on your device.</p>
-        
-        <h2>Key Features</h2>
-        <ul>
-            <li>Live GPS data including coordinates, altitude, speed, and heading</li>
-            <li>Supports both decimal and degrees-minutes-seconds (DMS) formats</li>
-            <li>Save locations locally on your device</li>
-            <li>View saved locations on an interactive map</li>
-            <li>Quickly copy or share coordinates and location details</li>
-            <li>Generate emergency-ready coordinate messages</li>
-            <li>Search and organize saved locations with a clean logbook</li>
-            <li>Works in low-connectivity and offline scenarios</li>
-        </ul>
 
-        <h2>Privacy First</h2>
-        <p>CloudNav is designed to be private by default:</p>
-        <ul>
-            <li>No account required</li>
-            <li>No tracking</li>
-            <li>All data stays on your device</li>
-        </ul>
-        
-        <h2>Contact Support</h2>
-        <p>If you need further assistance, feel free to reach out to us via email:</p>
-        <p><a href="mailto:admin@technoforbes.com">admin@technoforbes.com</a></p>
-        
-        <h2>FAQs</h2>
-        <p>Check our frequently asked questions below for quick answers:</p>
-        <ul>
-            <li><strong>Can CloudNav work offline?</strong> Yes, CloudNav is designed to work in low-connectivity and offline scenarios. All data stays on your device.</li>
-            <li><strong>What location data does CloudNav provide?</strong> CloudNav provides live GPS data including latitude, longitude, altitude, speed, heading, and accuracy in real time.</li>
-            <li><strong>Does CloudNav require an account?</strong> No, CloudNav requires no account and is private by default. All your data stays on your device.</li>
-            <li><strong>Can I save and view locations?</strong> Yes, you can save locations locally on your device and view them on an interactive map. You can also search and organize saved locations with the clean logbook feature.</li>
-            <li><strong>What coordinate formats does CloudNav support?</strong> CloudNav supports both decimal and degrees-minutes-seconds (DMS) coordinate formats.</li>
-        </ul>
+    <main id="top">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-inner">
+                <div>
+                    <p class="eyebrow">Private offline GPS</p>
+                    <h1 id="hero-title">Precise location data when the signal matters.</h1>
+                    <p class="hero-copy">CloudNav gives you live coordinates, altitude, speed, heading, saved places, and emergency-ready sharing without accounts, tracking, or cloud sync.</p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="mailto:admin@technoforbes.com">Email Support</a>
+                        <a class="button button-secondary" href="#faq">View FAQs</a>
+                    </div>
+                    <div class="trust-row" aria-label="CloudNav commitments">
+                        <div class="trust-item">
+                            <strong>No account</strong>
+                            <span>Open and use it immediately</span>
+                        </div>
+                        <div class="trust-item">
+                            <strong>No tracking</strong>
+                            <span>Built for private field use</span>
+                        </div>
+                        <div class="trust-item">
+                            <strong>Local data</strong>
+                            <span>Saved places stay on device</span>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="device" aria-label="CloudNav location preview">
+                    <div class="phone-screen">
+                        <div class="phone-top">
+                            <div class="phone-status">
+                                <span>GPS Locked</span>
+                                <span>Accuracy 4m</span>
+                            </div>
+                            <div class="coordinate-card">
+                                <div class="label">Current position</div>
+                                <p class="value">28.6139&deg; N</p>
+                                <p class="value">77.2090&deg; E</p>
+                                <div class="metric-grid">
+                                    <div class="metric">
+                                        <span>Altitude</span>
+                                        <strong>216 m</strong>
+                                    </div>
+                                    <div class="metric">
+                                        <span>Speed</span>
+                                        <strong>0.0 km/h</strong>
+                                    </div>
+                                    <div class="metric">
+                                        <span>Heading</span>
+                                        <strong>042&deg;</strong>
+                                    </div>
+                                    <div class="metric">
+                                        <span>Format</span>
+                                        <strong>DMS</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="emergency-strip">
+                            <span>Emergency message</span>
+                            <strong>Share exact coordinates with one prepared location note.</strong>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section" id="support" aria-labelledby="support-title">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 id="support-title">Support that gets you moving.</h2>
+                    <p>Find quick answers, understand location behavior, and reach the developer when you need hands-on help.</p>
+                </div>
+                <div class="support-grid">
+                    <article class="support-card">
+                        <div class="icon-box" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>Get started fast</h3>
+                        <p>Open CloudNav, allow location access, and the app will begin showing your live GPS readings when your device has a usable signal.</p>
+                    </article>
+                    <article class="support-card">
+                        <div class="icon-box signal" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M12 21s7-6.2 7-12A7 7 0 0 0 5 9c0 5.8 7 12 7 12z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M12 12.2a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>Improve accuracy</h3>
+                        <p>For the best fix, use CloudNav outdoors or near a clear view of the sky. Accuracy can vary indoors, underground, or around dense structures.</p>
+                    </article>
+                    <article class="support-card">
+                        <div class="icon-box gold" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Contact support</h3>
+                        <p>Email <a href="mailto:admin@technoforbes.com">admin@technoforbes.com</a> with your device model, iOS version, and a short description of the issue.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section alt" id="features" aria-labelledby="features-title">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 id="features-title">Built for precision, saved for later.</h2>
+                    <p>CloudNav keeps essential field data clear, portable, and ready when you need it.</p>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <h3>Live GPS data</h3>
+                        <p>Latitude, longitude, altitude, speed, heading, and accuracy update in real time.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>Two coordinate formats</h3>
+                        <p>Switch between decimal degrees and degrees-minutes-seconds for the workflow you trust.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>Saved locations</h3>
+                        <p>Store important points locally and return to them from your personal logbook.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>Interactive map</h3>
+                        <p>Review saved places visually and keep your key locations organized.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>Copy and share</h3>
+                        <p>Send coordinates and location details without retyping critical information.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>Emergency-ready notes</h3>
+                        <p>Create clear coordinate messages for rescue, coordination, or field reporting.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>Searchable logbook</h3>
+                        <p>Find saved places quickly when your list grows.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>Offline-first</h3>
+                        <p>Core location tools stay useful in low-connectivity and offline scenarios.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="privacy" aria-labelledby="privacy-title">
+            <div class="container privacy-layout">
+                <div class="privacy-lede">
+                    <p class="eyebrow">Privacy first</p>
+                    <h2 id="privacy-title">Your location stays yours.</h2>
+                    <p>CloudNav is designed for people who need accurate location data without handing over a trail of personal movement.</p>
+                </div>
+                <div class="privacy-grid">
+                    <article class="privacy-panel">
+                        <h3>No account required</h3>
+                        <p>Use the app without signing in or creating a profile.</p>
+                    </article>
+                    <article class="privacy-panel">
+                        <h3>No tracking</h3>
+                        <p>CloudNav does not follow you across apps or build behavioral profiles.</p>
+                    </article>
+                    <article class="privacy-panel">
+                        <h3>On-device saves</h3>
+                        <p>Saved locations are stored locally on your device.</p>
+                    </article>
+                    <article class="privacy-panel">
+                        <h3>Offline confidence</h3>
+                        <p>Essential GPS tools remain available when network conditions are limited.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section alt" id="faq" aria-labelledby="faq-title">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 id="faq-title">Frequently asked questions</h2>
+                    <p>Quick answers for the most common CloudNav support questions.</p>
+                </div>
+                <div class="faq">
+                    <details open>
+                        <summary>Can CloudNav work offline?</summary>
+                        <p>Yes. CloudNav is designed for low-connectivity and offline scenarios. GPS availability depends on your device and environment, but your saved data remains on your device.</p>
+                    </details>
+                    <details>
+                        <summary>What location data does CloudNav provide?</summary>
+                        <p>CloudNav provides latitude, longitude, altitude, speed, heading, and accuracy readings in real time when your device has an active GPS fix.</p>
+                    </details>
+                    <details>
+                        <summary>Does CloudNav require an account?</summary>
+                        <p>No. CloudNav does not require an account, sign-in, or user profile.</p>
+                    </details>
+                    <details>
+                        <summary>Can I save and view locations?</summary>
+                        <p>Yes. You can save locations locally, search your logbook, and review saved places on an interactive map.</p>
+                    </details>
+                    <details>
+                        <summary>Which coordinate formats are supported?</summary>
+                        <p>CloudNav supports decimal degrees and degrees-minutes-seconds, commonly known as DMS.</p>
+                    </details>
+                    <details>
+                        <summary>Why does accuracy change?</summary>
+                        <p>GPS accuracy can change because of buildings, weather, terrain, indoor use, device hardware, and satellite visibility. A clearer sky view usually improves the fix.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="section contact-band" id="contact" aria-labelledby="contact-title">
+            <div class="container contact-wrap">
+                <div>
+                    <h2 id="contact-title">Need help with CloudNav?</h2>
+                    <p>Send a short note with the issue, your device model, and your iOS version.</p>
+                </div>
+                <a class="button button-primary" href="mailto:admin@technoforbes.com">admin@technoforbes.com</a>
+            </div>
+        </section>
     </main>
-    <footer>
-        <p>© 2026 Anupam Bharti. All rights reserved.</p>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span>&copy; 2026 Anupam Bharti. All rights reserved.</span>
+            <a href="#top">Back to top</a>
+        </div>
     </footer>
 </body>
 </html>
